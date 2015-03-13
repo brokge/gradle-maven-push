@@ -111,8 +111,5 @@ afterEvaluate { project ->
         archives androidSourcesJar
         archives androidJavadocsJar
     }
-    tasks.withType(Compile) {
-    options.encoding = "UTF-8"
-   }
 
 }
