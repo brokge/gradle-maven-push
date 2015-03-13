@@ -91,7 +91,7 @@ afterEvaluate { project ->
         required { isReleaseBuild() && gradle.taskGraph.hasTask("uploadArchives") }
         sign configurations.archives
     }
-
+  
     task androidJavadocs(type: Javadoc) {
         source = android.sourceSets.main.java.srcDirs
         classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
@@ -111,4 +111,8 @@ afterEvaluate { project ->
         archives androidSourcesJar
         archives androidJavadocsJar
     }
+    tasks.withType(Compile) {
+    options.encoding = "UTF-8"
+   }
+
 }
