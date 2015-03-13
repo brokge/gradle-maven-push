@@ -1,9 +1,6 @@
 gradle-mvn-push
 ===============
 
-See this blog post for more context on this 'library': [http://chris.banes.me/2013/08/27/pushing-aars-to-maven-central/](http://chris.banes.me/2013/08/27/pushing-aars-to-maven-central/).
-
-
 ## Usage
 
 ### 1. Have a working Gradle build
@@ -25,23 +22,23 @@ signing.secretKeyRingFile=~/.gnupg/secring.gpg
 ```
 
 ### 3. Create project root gradle.properties
-You may already have this file, in which case just edit the original. This file should contain the POM values which are common to all of your sub-project (if you have any). For instance, here's [ActionBar-PullToRefresh's](https://github.com/chrisbanes/ActionBar-PullToRefresh):
+You may already have this file, in which case just edit the original. This file should contain the POM values which are common to all of your sub-project (if you have any). 
 
 ```properties
 VERSION_NAME=0.9.2-SNAPSHOT
 VERSION_CODE=92
-GROUP=com.github.chrisbanes.actionbarpulltorefresh
+GROUP=com.***.***
 
-POM_DESCRIPTION=A modern implementation of the pull-to-refresh for Android
-POM_URL=https://github.com/chrisbanes/ActionBar-PullToRefresh
-POM_SCM_URL=https://github.com/chrisbanes/ActionBar-PullToRefresh
-POM_SCM_CONNECTION=scm:git@github.com:chrisbanes/ActionBar-PullToRefresh.git
-POM_SCM_DEV_CONNECTION=scm:git@github.com:chrisbanes/ActionBar-PullToRefresh.git
+POM_DESCRIPTION=A modern implementation of the project for Android
+POM_URL=https://****
+POM_SCM_URL=https://***
+POM_SCM_CONNECTION=scm:git@*.git
+POM_SCM_DEV_CONNECTION=scm:git@*.git
 POM_LICENCE_NAME=The Apache Software License, Version 2.0
 POM_LICENCE_URL=http://www.apache.org/licenses/LICENSE-2.0.txt
 POM_LICENCE_DIST=repo
-POM_DEVELOPER_ID=chrisbanes
-POM_DEVELOPER_NAME=Chris Banes
+POM_DEVELOPER_ID=brokge
+POM_DEVELOPER_NAME=Brokge Chen
 ```
 
 The `VERSION_NAME` value is important. If it contains the keyword `SNAPSHOT` then the build will upload to the snapshot server, if not then to the release server.
@@ -50,7 +47,7 @@ The `VERSION_NAME` value is important. If it contains the keyword `SNAPSHOT` the
 The values in this file are specific to the sub-project (and override those in the root `gradle.properties`). In this example, this is just the name, artifactId and packaging type:
 
 ```properties
-POM_NAME=ActionBar-PullToRefresh Library
+POM_NAME=Test Library
 POM_ARTIFACT_ID=library
 POM_PACKAGING=aar
 ```
@@ -60,7 +57,7 @@ POM_PACKAGING=aar
 Add the following at the end of each `build.gradle` that you wish to upload:
 
 ```groovy
-apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
+apply from: 'https://github.com/brokge/gradle-maven-push/blob/master/gradle-mvn-push.gradle'
 ```
 
 ### 6. Build and Push
@@ -82,7 +79,7 @@ SNAPSHOT_REPOSITORY_URL (defaults to Maven Central's snapshot server)
 
 ## License
 
-    Copyright 2013 Chris Banes
+    Copyright 2015 Brokge Chen
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
